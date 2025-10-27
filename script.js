@@ -1,5 +1,5 @@
 // script.js
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 // ---------------- Page Animations ----------------
 gsap.from("header", { y: -40, opacity: 0, duration: 0.8, ease: "power2.out" });
@@ -7,15 +7,23 @@ gsap.from(".hero-left h2", { y: 20, opacity: 0, duration: 0.9, delay: 0.2 });
 gsap.from(".hero-left p", { y: 20, opacity: 0, duration: 0.9, delay: 0.35 });
 gsap.from(".hero-right", { scale: 0.95, opacity: 0, duration: 0.9, delay: 0.45 });
 
-// Stagger reveal for course cards
-gsap.utils.toArray(".course-card").forEach((card, i) => {
-  gsap.from(card, {
-    y: 30,
+// Stagger reveal for various elements
+const animateIn = (elem, delay = 0, y = 30) => {
+  gsap.from(elem, {
+    y,
     opacity: 0,
     duration: 0.8,
-    delay: 0.1 + i * 0.06,
-    scrollTrigger: { trigger: card, start: "top 80%" }
+    delay,
+    scrollTrigger: { trigger: elem, start: "top 85%" }
   });
+};
+
+gsap.utils.toArray(".course-card, .step-card, .support-card, .footer-col").forEach((card, i) => {
+  animateIn(card, 0.1 + (i % 3) * 0.1);
+});
+
+gsap.utils.toArray(".section h3, .section .lead, .courses-grid, .admission-details, .admission-form, .contact-grid").forEach(el => {
+  animateIn(el);
 });
 
 // Parallax effect on hero-right
@@ -46,31 +54,14 @@ function setActive(id) {
 document.querySelectorAll("a[href^='#']").forEach(a => {
   a.addEventListener("click", e => {
     e.preventDefault();
-    const target = document.querySelector(a.getAttribute("href"));
-    if (target) target.scrollIntoView({ behavior: "smooth", block: "center" });
+    const target = a.getAttribute("href");
+    gsap.to(window, {
+      duration: 1.2,
+      scrollTo: { y: target, offsetY: 80 },
+      ease: "power3.inOut"
+    });
   });
 });
-
-// ---------------- Form Handlers (Demo) ----------------
-const regForm = document.getElementById("regForm");
-if (regForm) {
-  regForm.addEventListener("submit", e => {
-    e.preventDefault();
-    const fm = new FormData(e.target);
-    alert(`Application submitted — we will contact you at ${fm.get("email")}`);
-    e.target.reset();
-  });
-}
-
-const contactForm = document.getElementById("contactForm");
-if (contactForm) {
-  contactForm.addEventListener("submit", e => {
-    e.preventDefault();
-    const fm = new FormData(e.target);
-    alert(`Message received — thanks ${fm.get("name")}`);
-    e.target.reset();
-  });
-}
 
 // ---------------- Header Shadow ----------------
 const header = document.querySelector("header");
@@ -98,27 +89,14 @@ document.addEventListener('DOMContentLoaded', () => {
       map.invalidateSize();
     }, 400);
   }
-});
 
-// Enable submit button only when terms are accepted
-document.addEventListener("DOMContentLoaded", () => {
+  // Form functionality
+  const regForm = document.getElementById("regForm");
+  const contactForm = document.getElementById("contactForm");
   const termsCheck = document.getElementById("termsCheck");
   const submitBtn = document.getElementById("submitBtn");
-  if (termsCheck && submitBtn) {
-    termsCheck.addEventListener("change", () => {
-      submitBtn.disabled = !termsCheck.checked;
-      submitBtn.style.opacity = termsCheck.checked ? "1" : "0.6";
-      submitBtn.style.cursor = termsCheck.checked ? "pointer" : "not-allowed";
-    });
-  }
-});
 
-// Terms and form validation + live submission
-document.addEventListener("DOMContentLoaded", () => {
-  const termsCheck = document.getElementById("termsCheck");
-  const submitBtn = document.getElementById("submitBtn");
-  const form = document.getElementById("regForm");
-
+  // Enable submit button only when terms are accepted
   if (termsCheck && submitBtn) {
     termsCheck.addEventListener("change", () => {
       submitBtn.disabled = !termsCheck.checked;
@@ -127,30 +105,67 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  if (form) {
-    form.addEventListener("submit", async (e) => {
+  // Registration Form Submission
+  if (regForm) {
+    regForm.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      if (!termsCheck.checked) {
+      if (termsCheck && !termsCheck.checked) {
         alert("⚠️ Please accept the Terms and Conditions before submitting.");
         return;
       }
 
-      const data = Object.fromEntries(new FormData(form));
+      const formData = new FormData(regForm);
 
       try {
-        const res = await fetch(form.action, {
+        const res = await fetch(regForm.action, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
+          body: formData,
+          headers: { 
+            'Accept': 'application/json'
+          },
         });
 
         if (res.ok) {
           alert("✅ Application submitted successfully! We’ll contact you soon.");
-          form.reset();
-          submitBtn.disabled = true;
+          regForm.reset();
+          if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = "0.6";
+            submitBtn.style.cursor = "not-allowed";
+          }
+          if(termsCheck) termsCheck.checked = false;
         } else {
           alert("❌ Submission failed. Please try again later.");
+        }
+      } catch (err) {
+        console.error(err);
+        alert("⚠️ Network error — check your internet connection.");
+      }
+    });
+  }
+
+  // Contact Form Submission
+  if (contactForm) {
+    contactForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const formData = new FormData(contactForm);
+      const data = Object.fromEntries(formData);
+
+      try {
+        const res = await fetch(contactForm.action, {
+          method: "POST",
+          body: formData,
+          headers: { 
+            'Accept': 'application/json'
+          },
+        });
+
+        if (res.ok) {
+          alert(`✅ Message received — thanks, ${data.name}!`);
+          contactForm.reset();
+        } else {
+          alert("❌ Message sending failed. Please try again later.");
         }
       } catch (err) {
         console.error(err);
