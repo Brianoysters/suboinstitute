@@ -4,10 +4,23 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>SUBOMAP Institute — Short Courses</title>
+
+  <!-- Fonts & Styles -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Smooth looping background slideshow -->
+  <div class="bg-slideshow">
+    <img src="public/bg1.webp" alt="Background 1">
+    <img src="public/bg2.webp" alt="Background 2">
+    <img src="public/bg3.webp" alt="Background 3">
+    <img src="public/bg4.webp" alt="Background 4">
+    <img src="public/bg5.webp" alt="Background 5">
+    <img src="public/bg6.webp" alt="Background 6">
+  </div>
+
   <div class="top-strip">
     <div class="wrap">Contact: subomapinstitute@gmail.com · 0794815207 · Tumaini House 2nd Floor, Nairobi CBD</div>
   </div>
@@ -15,7 +28,7 @@
   <header>
     <div class="wrap nav">
       <div class="brand">
-        <div class="logo">S</div>
+        <a href="#home"><img src="public/img1.webp" alt="Subomap Logo" class="logo-img"/></a>
         <div>
           <h1>SUBOMAP Institute</h1>
           <p>Practical short courses — Survey · GIS · Design · Programming</p>
@@ -31,112 +44,272 @@
         </ul>
       </nav>
       <div class="actions">
-        <button class="btn alt">0794815207</button>
-        <button class="btn">Register</button>
+        <a href="tel:0794815207" class="btn alt">0794815207</a>
+        <a href="#admission" class="btn">Register</a>
       </div>
     </div>
   </header>
 
   <main class="wrap">
+    <!-- Hero Section -->
     <section id="home" class="hero">
       <div class="hero-left">
         <div class="eyebrow">Online & Physical Trainings</div>
         <h2>Learn Practically — Build Marketable Skills</h2>
         <p>Hands-on training in survey instruments, CAD, GIS, programming and creative software. Courses designed for employment and practical field work.</p>
         <div class="cta-group">
-          <button class="btn">Enroll Now</button>
-          <button class="btn alt">View Courses</button>
+          <a href="#admission" class="btn">Enroll Now</a>
+          <a href="#courses" class="btn alt">View Courses</a>
         </div>
       </div>
       <aside class="hero-right">
         <h3>Popular Courses</h3>
         <div class="popular-list">
-          <div class="popular-item"><div><strong>AUTOCAD CIVIL 3D</strong><div class="meta">2 Weeks · Ksh 11,000</div></div><button class="btn alt">Enroll</button></div>
-          <div class="popular-item"><div><strong>PYTHON FUNDAMENTAL</strong><div class="meta">8 Weeks · Ksh 25,000</div></div><button class="btn alt">Enroll</button></div>
-          <div class="popular-item"><div><strong>WEB DESIGN (BASIC)</strong><div class="meta">8 Weeks · Ksh 30,000</div></div><button class="btn alt">Enroll</button></div>
+          <div class="popular-item">
+            <div><strong>AUTOCAD CIVIL 3D</strong><div class="meta">2 Weeks · Ksh 11,000</div></div>
+            <a href="#admission" class="btn alt">Enroll</a>
+          </div>
+          <div class="popular-item">
+            <div><strong>PYTHON FUNDAMENTAL</strong><div class="meta">8 Weeks · Ksh 25,000</div></div>
+            <a href="#admission" class="btn alt">Enroll</a>
+          </div>
+          <div class="popular-item">
+            <div><strong>WEB DESIGN (BASIC)</strong><div class="meta">8 Weeks · Ksh 30,000</div></div>
+            <a href="#admission" class="btn alt">Enroll</a>
+          </div>
         </div>
       </aside>
     </section>
 
+    <!-- Courses -->
     <section id="courses" class="section">
       <h3>Short Courses — 20 Available</h3>
       <p class="lead">Survey, GIS, CAD, Design, Programming, Instrumentation — modules crafted for accelerated job-readiness.</p>
       <div class="courses-grid">
-        <article class="course-card"><div class="course-thumb">CAD</div><div><h4>AUTOCAD CIVIL 3D</h4><div class="meta">2 Weeks · Survey / Civil Eng</div><p>Terrain modelling, corridor design, quantity extraction and production drawing workflows.</p></div><div class="row"><div class="price">Ksh 11,000</div><button class="btn">Enroll now</button></div></article>
-        <article class="course-card"><div class="course-thumb">TS</div><div><h4>TOTAL STATION</h4><div class="meta">2 Weeks · Instrumentation</div><p>Field measurement, data reduction, levelling and best practices for accuracy in surveying.</p></div><div class="row"><div class="price">Ksh 35,000</div><button class="btn">Enroll now</button></div></article>
-        <article class="course-card"><div class="course-thumb">WEB</div><div><h4>WEB DESIGN (BASIC)</h4><div class="meta">8 Weeks · Frontend</div><p>HTML, CSS, JavaScript fundamentals with responsive design and deployment workflow.</p></div><div class="row"><div class="price">Ksh 30,000</div><button class="btn">Enroll now</button></div></article>
-        <article class="course-card"><div class="course-thumb">PY</div><div><h4>PYTHON FUNDAMENTAL</h4><div class="meta">8 Weeks · Programming</div><p>Core programming constructs, scripting, automation, and basic data workflows.</p></div><div class="row"><div class="price">Ksh 25,000</div><button class="btn">Enroll now</button></div></article>
-        <article class="course-card"><div class="course-thumb">RTK</div><div><h4>RTK</h4><div class="meta">2 Weeks · GNSS</div><p>Real-time Kinematic positioning, base/rover setup and correction services.</p></div><div class="row"><div class="price">Ksh 45,000</div><button class="btn">Enroll now</button></div></article>
-        <article class="course-card"><div class="course-thumb">GD</div><div><h4>GRAPHIC DESIGN</h4><div class="meta">2 Months · Creative</div><p>Branding, layout, production-ready assets using industry standard software.</p></div><div class="row"><div class="price">Ksh 26,500</div><button class="btn">Enroll now</button></div></article>
+        <article class="course-card">
+          <img src="public/img2.webp" alt="Course" class="course-thumb-img"/>
+          <div><h4>AUTOCAD CIVIL 3D</h4><div class="meta">2 Weeks · Survey / Civil Eng</div>
+          <p>Terrain modelling, corridor design, quantity extraction and production drawing workflows.</p></div>
+          <div class="row"><div class="price">Ksh 11,000</div><a href="#admission" class="btn">Enroll now</a></div>
+        </article>
+
+        <article class="course-card">
+          <img src="public/img3.webp" alt="Course" class="course-thumb-img"/>
+          <div><h4>TOTAL STATION</h4><div class="meta">2 Weeks · Instrumentation</div>
+          <p>Field measurement, data reduction, levelling and best practices for accuracy in surveying.</p></div>
+          <div class="row"><div class="price">Ksh 35,000</div><a href="#admission" class="btn">Enroll now</a></div>
+        </article>
+
+        <article class="course-card">
+          <img src="public/img4.webp" alt="Course" class="course-thumb-img"/>
+          <div><h4>WEB DESIGN (BASIC)</h4><div class="meta">8 Weeks · Frontend</div>
+          <p>HTML, CSS, JavaScript fundamentals with responsive design and deployment workflow.</p></div>
+          <div class="row"><div class="price">Ksh 30,000</div><a href="#admission" class="btn">Enroll now</a></div>
+        </article>
       </div>
     </section>
 
-    <section id="admission" class="section">
+    <section id="admission" class="section admission-section">
       <h3>Registration & Admission</h3>
-      <p class="lead">Submit your application, make payment and join the cohort. Registration completes after confirmation.</p>
-      <div class="admission-grid">
-        <div class="steps">
-          <div class="step"><div class="num">1</div><div><strong>Apply online</strong><div class="meta">Fill the registration form and choose your course.</div></div></div>
-          <div class="step"><div class="num">2</div><div><strong>Make payment</strong><div class="meta">Pay the registration or course fee via MPESA or bank transfer.</div></div></div>
-          <div class="step"><div class="num">3</div><div><strong>Start learning</strong><div class="meta">Receive program schedule and materials — both physical and online options.</div></div></div>
+      <p class="lead">
+        Begin your journey at SUBOMAP Institute — practical short courses designed to make you job-ready in GIS, Survey, Design, and Programming.
+      </p>
+    
+      <div class="admission-layout">
+        <!-- LEFT: Requirements -->
+        <div class="admission-details">
+          <h4>Admission Requirements</h4>
+          <ul class="requirements">
+            <li>✅ Completed High School or equivalent qualification</li>
+            <li>✅ Basic computer literacy knowledge</li>
+            <li>✅ Advancing from a technical college or university</li>
+            <li>✅ Possess valid National ID or Passport</li>
+            <li>✅ Two current passport-size photographs</li>
+            <li>✅ Copies of academic transcripts or certificates</li>
+          </ul>
+    
+          <h4>Mode of Study</h4>
+          <ul class="requirements">
+            <li>🎓 Full-Time (Physical at Nairobi CBD)</li>
+            <li>💻 Online / Hybrid (Zoom + Practical Sessions)</li>
+            <li>🕓 Weekend & Evening Programs available</li>
+          </ul>
+    
+          <div class="steps-section">
+            <h4>Admission Process</h4>
+            <div class="step-card">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <strong>Apply Online</strong>
+                <p>Fill in the registration form and upload your relevant documents.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <strong>Confirm Payment</strong>
+                <p>Our admissions team will contact you for fee details and intake confirmation.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <strong>Start Learning</strong>
+                <p>Receive your timetable, course materials, and join classes (onsite or online).</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <aside class="apply-form">
-          <h4>Quick Apply</h4>
-          <form id="regForm">
-            <input class="input" name="name" placeholder="Full name" required>
-            <input class="input" name="email" placeholder="Email" type="email" required>
-            <select name="course" class="input">
-              <option>Select course</option>
-              <option>AUTOCAD CIVIL 3D</option>
-              <option>PYTHON FUNDAMENTAL</option>
-              <option>WEB DESIGN (BASIC)</option>
-            </select>
-            <button class="btn" type="submit">Submit Application</button>
-          </form>
+    
+        <!-- RIGHT: Application Form -->
+        <aside class="admission-form">
+          <h4>Online Application Form</h4>
+          <form id="regForm" action="https://your-backend-endpoint.com/api/register" method="POST">
+            <div class="form-group">
+              <input class="input" name="name" placeholder="Full Name" required>
+              <input class="input" name="email" placeholder="Email Address" type="email" required>
+            </div>
+            <div class="form-group">
+              <input class="input" name="phone" placeholder="Phone Number" required>
+              <input class="input" name="dob" placeholder="Date of Birth" type="date" required>
+            </div>
+            <div class="form-group">
+              <select name="gender" class="input" required>
+                <option value="">Select Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+              </select>
+              <select name="county" class="input" required>
+                <option value="">Select County</option>
+                <option>Nairobi</option>
+                <option>Kisumu</option>
+                <option>Mombasa</option>
+                <option>Nakuru</option>
+                <option>Eldoret</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <select name="course" class="input" required>
+                <option value="">Preferred Course</option>
+                <option>AUTOCAD CIVIL 3D</option>
+                <option>PYTHON FUNDAMENTAL</option>
+                <option>WEB DESIGN (BASIC)</option>
+                <option>TOTAL STATION</option>
+              </select>
+              <select name="intake" class="input" required>
+                <option value="">Preferred Intake</option>
+                <option>January</option>
+                <option>May</option>
+                <option>September</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <input class="input" name="education" placeholder="Highest Education Level" required>
+              <input class="input" name="completion" placeholder="Year of Completion" type="number" required>
+            </div>
+            <div class="form-group">
+              <input class="input" name="institution" placeholder="Institution Attended" required>
+            </div>
+          
+            <div class="form-group terms">
+              <label>
+                <input type="checkbox" id="termsCheck"> I accept the
+                <a href="terms.html" target="_blank">Terms and Conditions</a>
+              </label>
+            </div>
+          
+            <button class="btn" id="submitBtn" type="submit" disabled>Submit Application</button>
+          </form>                    
+    
+          <div class="note">
+            <p>📧 You’ll receive a confirmation email once your application is successfully submitted.  
+            For help, contact <a href="mailto:subomapinstitute@gmail.com">subomapinstitute@gmail.com</a>.</p>
+          </div>
         </aside>
       </div>
-    </section>
+    </section>    
 
+    <!-- Customer Care -->
     <section id="support" class="section">
       <h3>Customer Care</h3>
       <p class="lead">Issues with registration, payments, or accessing course materials? Reach our support team.</p>
       <div class="support-cards">
-        <div class="support-card"><strong>General Support</strong><div class="meta">subomapinstitute@gmail.com</div></div>
-        <div class="support-card"><strong>Admissions</strong><div class="meta">0794815207</div></div>
-        <div class="support-card"><strong>Location</strong><div class="meta">Tumaini House 2nd Floor, Nairobi CBD</div></div>
+        <div class="support-card"><strong>General Support</strong><div class="meta"><a href="mailto:subomapinstitute@gmail.com">subomapinstitute@gmail.com</a></div></div>
+        <div class="support-card"><strong>Admissions</strong><div class="meta"><a href="tel:0794815207">0794815207</a></div></div>
+        <div class="support-card"><strong>Location</strong><div class="meta"><a href="https://maps.google.com/?q=Tumaini+House+Nairobi+CBD" target="_blank">Tumaini House 2nd Floor, Nairobi CBD</a></div></div>
       </div>
     </section>
 
+    <!-- Contact -->
     <section id="contact" class="section">
       <h3>Contact Us</h3>
-      <p class="lead">Visit our office or send us a message and we'll respond within one business day.</p>
       <div class="contact-grid">
-        <div>
-          <p><strong>Address:</strong> Tumaini House 2nd Floor, Nairobi CBD</p>
-          <p><strong>Email:</strong> subomapinstitute@gmail.com</p>
-          <p><strong>Phone:</strong> 0794815207</p>
+        <div class="contact-left">
+          <p>Become job-ready with practical, marketable skills that make you stand out!</p>
+          <p><strong>Nairobi, Kenya</strong></p>
+          <p class="meta"><a href="mailto:subomapinstitute@gmail.com">subomapinstitute@gmail.com</a> · <a href="tel:0794815207">0794815207</a></p>
+          <div class="map-container">
+            <div id="map"></div>
+          </div>
         </div>
-        <aside>
-          <form id="contactForm">
-            <input class="input" name="name" placeholder="Your name" required>
-            <input class="input" name="email" placeholder="Your email" type="email" required>
+        <aside class="contact-form">
+          <h4>Send a message</h4>
+          <form id="contactForm" action="https://example.com/contact" method="post">
+            <input class="input" name="name" placeholder="Your name" required />
+            <input class="input" name="email" placeholder="Your email" type="email" required />
             <textarea class="input" name="message" placeholder="Message" rows="4"></textarea>
-            <button class="btn" type="submit">Send Message</button>
+            <button class="btn submit" type="submit">Send</button>
           </form>
         </aside>
       </div>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer>
-    <div class="wrap">
-      <div>© 2025 Subomap Institute. All rights reserved.</div>
-      <div>Quick Links · Popular Courses · Contact Info</div>
+    <div class="footer-bg">
+      <img src="images/img4.webp" alt="Footer background" class="footer-deco"/>
+    </div>
+    <div class="wrap footer-grid">
+      <div class="footer-col">
+        <img src="public/img1.webp" alt="Subomap Logo" class="footer-logo"/>
+        <p>Building skills for the future through hands-on learning and industry-oriented programs.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#admission">Admission</a></li>
+          <li><a href="#support">Support</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="terms.html" target="_blank">Terms and Conditions</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact Info</h4>
+        <p>Tumaini House, 2nd Floor (Nairobi CBD)</p>
+        <p>Email: <a href="mailto:subomapinstitute@gmail.com">subomapinstitute@gmail.com</a></p>
+        <p>Phone: <a href="tel:0794815207">0794815207</a></p>
+        <div class="socials">
+          <a href="https://facebook.com" target="_blank"><img src="public/facebook.webp" alt="Facebook"></a>
+          <a href="https://linkedin.com" target="_blank"><img src="public/linkedin.webp" alt="LinkedIn"></a>
+          <a href="https://youtube.com" target="_blank"><img src="public/youtube.webp" alt="YouTube"></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 Subomap Institute — All Rights Reserved | Designed by Brian Otieno
     </div>
   </footer>
 
+  <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

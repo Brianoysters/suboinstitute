@@ -1,13 +1,13 @@
 // script.js
 gsap.registerPlugin(ScrollTrigger);
 
-// Page intro animations
+// ---------------- Page Animations ----------------
 gsap.from("header", { y: -40, opacity: 0, duration: 0.8, ease: "power2.out" });
 gsap.from(".hero-left h2", { y: 20, opacity: 0, duration: 0.9, delay: 0.2 });
 gsap.from(".hero-left p", { y: 20, opacity: 0, duration: 0.9, delay: 0.35 });
 gsap.from(".hero-right", { scale: 0.95, opacity: 0, duration: 0.9, delay: 0.45 });
 
-// Stagger reveal for courses
+// Stagger reveal for course cards
 gsap.utils.toArray(".course-card").forEach((card, i) => {
   gsap.from(card, {
     y: 30,
@@ -18,14 +18,14 @@ gsap.utils.toArray(".course-card").forEach((card, i) => {
   });
 });
 
-// Parallax hero card
+// Parallax effect on hero-right
 gsap.to(".hero-right", {
   yPercent: 8,
   ease: "none",
   scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 0.6 }
 });
 
-// Nav highlight on scroll
+// ---------------- Nav Highlight on Scroll ----------------
 const sections = document.querySelectorAll("main section");
 sections.forEach(sec => {
   ScrollTrigger.create({
@@ -42,7 +42,7 @@ function setActive(id) {
   if (el) el.classList.add("active");
 }
 
-// Smooth scrolling for nav links
+// ---------------- Smooth Scrolling ----------------
 document.querySelectorAll("a[href^='#']").forEach(a => {
   a.addEventListener("click", e => {
     e.preventDefault();
@@ -51,22 +51,111 @@ document.querySelectorAll("a[href^='#']").forEach(a => {
   });
 });
 
-// Form handlers (demo)
-document.getElementById("regForm").addEventListener("submit", e => {
-  e.preventDefault();
-  const fm = new FormData(e.target);
-  alert(`Application submitted — we will contact you at ${fm.get("email")}`);
-  e.target.reset();
-});
-document.getElementById("contactForm").addEventListener("submit", e => {
-  e.preventDefault();
-  const fm = new FormData(e.target);
-  alert(`Message received — thanks ${fm.get("name")}`);
-  e.target.reset();
-});
+// ---------------- Form Handlers (Demo) ----------------
+const regForm = document.getElementById("regForm");
+if (regForm) {
+  regForm.addEventListener("submit", e => {
+    e.preventDefault();
+    const fm = new FormData(e.target);
+    alert(`Application submitted — we will contact you at ${fm.get("email")}`);
+    e.target.reset();
+  });
+}
 
-// Header shadow on scroll
+const contactForm = document.getElementById("contactForm");
+if (contactForm) {
+  contactForm.addEventListener("submit", e => {
+    e.preventDefault();
+    const fm = new FormData(e.target);
+    alert(`Message received — thanks ${fm.get("name")}`);
+    e.target.reset();
+  });
+}
+
+// ---------------- Header Shadow ----------------
 const header = document.querySelector("header");
 window.addEventListener("scroll", () => {
   header.style.boxShadow = window.scrollY > 10 ? "0 8px 30px rgba(2,8,23,0.15)" : "none";
+});
+
+// ---------------- Leaflet Map Fix ----------------
+document.addEventListener('DOMContentLoaded', () => {
+  const mapContainer = document.getElementById('map');
+  if (mapContainer) {
+    const map = L.map(mapContainer, { zoomControl: true }).setView([-1.2865, 36.8256], 16);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    L.marker([-1.2865, 36.8256])
+      .addTo(map)
+      .bindPopup('<b>SUBOMAP Institute</b><br>Tumaini House, Nairobi CBD')
+      .openPopup();
+
+    // Force Leaflet to recalculate map size once visible
+    setTimeout(() => {
+      map.invalidateSize();
+    }, 400);
+  }
+});
+
+// Enable submit button only when terms are accepted
+document.addEventListener("DOMContentLoaded", () => {
+  const termsCheck = document.getElementById("termsCheck");
+  const submitBtn = document.getElementById("submitBtn");
+  if (termsCheck && submitBtn) {
+    termsCheck.addEventListener("change", () => {
+      submitBtn.disabled = !termsCheck.checked;
+      submitBtn.style.opacity = termsCheck.checked ? "1" : "0.6";
+      submitBtn.style.cursor = termsCheck.checked ? "pointer" : "not-allowed";
+    });
+  }
+});
+
+// Terms and form validation + live submission
+document.addEventListener("DOMContentLoaded", () => {
+  const termsCheck = document.getElementById("termsCheck");
+  const submitBtn = document.getElementById("submitBtn");
+  const form = document.getElementById("regForm");
+
+  if (termsCheck && submitBtn) {
+    termsCheck.addEventListener("change", () => {
+      submitBtn.disabled = !termsCheck.checked;
+      submitBtn.style.opacity = termsCheck.checked ? "1" : "0.6";
+      submitBtn.style.cursor = termsCheck.checked ? "pointer" : "not-allowed";
+    });
+  }
+
+  if (form) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      if (!termsCheck.checked) {
+        alert("⚠️ Please accept the Terms and Conditions before submitting.");
+        return;
+      }
+
+      const data = Object.fromEntries(new FormData(form));
+
+      try {
+        const res = await fetch(form.action, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+
+        if (res.ok) {
+          alert("✅ Application submitted successfully! We’ll contact you soon.");
+          form.reset();
+          submitBtn.disabled = true;
+        } else {
+          alert("❌ Submission failed. Please try again later.");
+        }
+      } catch (err) {
+        console.error(err);
+        alert("⚠️ Network error — check your internet connection.");
+      }
+    });
+  }
 });
