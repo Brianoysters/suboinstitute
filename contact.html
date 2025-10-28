@@ -42,7 +42,7 @@
             <li><a href="courses.html" class="navbar-link">Courses</a></li>
             <li><a href="admission.html" class="navbar-link">Admission</a></li>
             <li><a href="support.html" class="navbar-link">Customer Care</a></li>
-            <li><a href="contact.html" class="navbar-link">Contact</a></li>
+            <li><a href="contact.html" class="navbar-link active">Contact</a></li>
             <li>
               <a href="tel:0794815207" class="btn alt" style="margin-top: 0;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
@@ -57,55 +57,45 @@
     </div>
   </header>
 
-  <section class="terms-container">
-    <div class="wrap">
-      <p>Welcome to SUBOMAP Institute. By registering for any of our courses, you agree to comply with the terms and conditions outlined below. Please read them carefully before applying or making any payments.</p>
+  <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+      <h3>Contact Us</h3>
+      <p class="lead">We’d love to hear from you! Reach out to us for course inquiries, collaborations, or support.</p>
 
-      <h2>1. Admission & Eligibility</h2>
-    <ul>
-      <li>Applicants must have completed high school or hold an equivalent qualification.</li>
-      <li>Applicants are required to possess basic computer literacy skills.</li>
-      <li>Admission may require verification of academic documents and valid national identification.</li>
-      <li>SUBOMAP Institute reserves the right to accept or decline any application.</li>
-    </ul>
+      <div class="contact-container">
+        <!-- Left Info Panel -->
+        <div class="contact-info">
+          <div class="info-block">
+            <h4>Head Office</h4>
+            <p><strong>SUBOMAP Institute</strong></p>
+            <p>Tumaini House, 2nd Floor<br>Nairobi CBD, Kenya</p>
+            <p>
+              <a href="mailto:subomapinstitute@gmail.com">subomapinstitute@gmail.com</a><br>
+              <a href="tel:0794815207">0794815207</a>
+            </p>
+            <a href="https://maps.google.com/?q=Tumaini+House+Nairobi+CBD" class="btn alt" target="_blank">Open in Google Maps</a>
+          </div>
 
-    <h2>2. Course Enrollment & Payment</h2>
-    <ul>
-      <li>All course fees must be paid in full or as agreed upon during registration.</li>
-      <li>Payments can be made via MPESA, bank transfer, or other approved channels.</li>
-      <li>Proof of payment must be submitted before accessing course materials or sessions.</li>
-    </ul>
+          <div class="map-wrapper">
+            <div id="map"></div>
+          </div>
+        </div>
 
-    <h2>3. Refund & Cancellation Policy</h2>
-    <ul>
-      <li>Refunds are only issued if a course is canceled or postponed by the institute.</li>
-      <li>No refunds will be provided for voluntary withdrawal after the start of the program.</li>
-      <li>Students may defer their enrollment to a later intake upon approval.</li>
-    </ul>
+        <!-- Right Form Panel -->
+        <aside class="contact-form-card">
+          <h4>Send Us a Message</h4>
+          <form id="contactForm" action="https://formspree.io/f/xanlqezy" method="post">
+            <div class="form-row">
+              <input class="input" name="name" placeholder="Full Name" required />
+              <input class="input" name="email" placeholder="Email Address" type="email" required />
+            </div>
+            <input class="input" name="subject" placeholder="Subject" required />
+            <textarea class="input" name="message" placeholder="Write your message..." rows="5" required></textarea>
 
-    <h2>4. Conduct & Attendance</h2>
-    <ul>
-      <li>Students are expected to maintain professionalism, punctuality, and respect toward instructors and peers.</li>
-      <li>Attendance of at least 75% is required to qualify for certification.</li>
-      <li>Misconduct, plagiarism, or disruptive behavior may result in dismissal without refund.</li>
-    </ul>
-
-    <h2>5. Certification</h2>
-    <ul>
-      <li>Certificates are awarded upon successful completion of the course and fulfillment of all requirements.</li>
-      <li>Lost or damaged certificates may be reissued at a processing fee.</li>
-    </ul>
-
-    <h2>6. Data Privacy</h2>
-    <p>All personal information provided during registration is confidential and used solely for academic and administrative purposes, in compliance with applicable data protection laws.</p>
-
-    <h2>7. Updates & Amendments</h2>
-    <p>SUBOMAP Institute reserves the right to modify these terms without prior notice. Updated versions will be available on our official website.</p>
-
-    <h2>8. Contact Us</h2>
-    <p>For inquiries regarding these Terms and Conditions, contact us at:</p>
-    <p><strong>Email:</strong> <a href="mailto:subomapinstitute@gmail.com">subomapinstitute@gmail.com</a><br>
-       <strong>Phone:</strong> <a href="tel:0794815207">0794815207</a></p>
+            <button class="btn submit" type="submit">Send Message</button>
+          </form>
+        </aside>
+      </div>
     </section>
 
   <!-- Footer -->
@@ -127,6 +117,7 @@
           <li><a href="admission.html">Admission</a></li>
           <li><a href="support.html">Support</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a href="terms.html">Terms and Conditions</a></li>
           <li><a href="https://subomapgeosystems.com/" target="_blank">Subomapgeosystems</a></li>
         </ul>
       </div>

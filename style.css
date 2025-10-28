@@ -595,7 +595,6 @@ font-family: 'Playfair Display', serif;
 .leaflet-container {
   z-index: 0 !important;
 }
-
 /* ---------------- Footer ---------------- */
 footer {
   background: #07192a;
@@ -789,7 +788,7 @@ body.nav-open::after {
 
 @media (max-width: 768px) {
   .wrap {
-    padding: 0 12px;
+padding: 0 12px;
     max-width: 100%;
   }
   .nav-toggle {
@@ -1083,6 +1082,34 @@ body.nav-open::after {
 .contact-section {
   background: #f8fafc;
   padding: 60px 0;
+
+/* Page Transitions */
+body {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+/* This is the state for the new page before it becomes visible */
+body.pre-fade {
+  opacity: 0;
+  transform: translateY(15px);
+}
+
+/* This is the state for the old page as it navigates away */
+body.fade-out {
+  opacity: 0;
+  transform: translateY(-15px);
+}
+
+body.fade-out {
+  opacity: 0;
+}
+
+/* Pre-fade state for smooth loading */
+body.pre-fade {
+  opacity: 0;
+}
   position: relative;
 }
 
@@ -1194,6 +1221,30 @@ body.nav-open::after {
 }
 
 /* Responsive */
+.terms-container {
+  padding: 80px 0;
+  background: #fff;
+  color: #333;
+}
+
+.terms-container h2 {
+  font-size: 2rem;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  color: var(--primary);
+}
+
+.terms-container p, 
+.terms-container li {
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+.terms-container ul {
+  list-style: disc;
+  padding-left: 20px;
+}
 @media (max-width: 960px) {
   .contact-container {
     grid-template-columns: 1fr;

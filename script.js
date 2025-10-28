@@ -33,6 +33,34 @@ gsap.to(".hero-right", {
   scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 0.6 }
 });
 
+// ---------------- Page Transitions ----------------
+document.addEventListener('DOMContentLoaded', () => {
+  const links = document.querySelectorAll('a');
+  
+  links.forEach(link => {
+    link.addEventListener('click', e => {
+      const href = link.getAttribute('href');
+      
+      // Ignore links that don't navigate away
+      if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) {
+        return;
+      }
+      
+      e.preventDefault();
+      document.body.classList.add('fade-out');
+      
+      setTimeout(() => {
+        window.location.href = href;
+      }, 400); // Match this to the CSS transition duration
+    });
+  });
+  
+  // On page load, remove the pre-fade class to trigger the fade-in
+  window.addEventListener('load', () => {
+    document.body.classList.remove('pre-fade');
+  });
+});
+
 // ---------------- Nav Highlight on Scroll ----------------
 const sections = document.querySelectorAll("main section");
 sections.forEach(sec => {

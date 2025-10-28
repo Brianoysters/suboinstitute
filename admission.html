@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SUBOMAP Institute — Short Courses</title>
+  <link rel="icon" href="public/img1.webp" type="image/webp" />
+
+  <!-- Fonts & Styles -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="pre-fade">
+  <!-- Smooth looping background slideshow -->
+  <div class="bg-slideshow">
+    <img src="public/bg1.webp" alt="Background 1">
+    <img src="public/bg2.webp" alt="Background 2">
+    <img src="public/bg3.webp" alt="Background 3">
+    <img src="public/bg4.webp" alt="Background 4">
+    <img src="public/bg5.webp" alt="Background 5">
+    <img src="public/bg6.webp" alt="Background 6">
+  </div>
+
+  <div class="top-strip">
+    <div class="wrap">Contact: subomapinstitute@gmail.com · 0794815207 · Tumaini House 2nd Floor, Nairobi CBD</div>
+  </div>
+
+  <header>
+    <div class="wrap nav">
+      <div class="brand">
+        <a href="index.html"><img src="public/img1.webp" alt="Subomap Logo" class="logo-img"/></a>
+        <div>
+          <h1>SUBOMAP Institute</h1>
+          <p>Practical short courses — Survey · GIS · Design · Programming</p>
+        </div>
+      </div>
+      <nav>
+        <div class="nav-right">
+          <ul>
+            <li><a href="index.html" class="navbar-link">Home</a></li>
+            <li><a href="courses.html" class="navbar-link">Courses</a></li>
+            <li><a href="admission.html" class="navbar-link active">Admission</a></li>
+            <li><a href="support.html" class="navbar-link">Customer Care</a></li>
+            <li><a href="contact.html" class="navbar-link">Contact</a></li>
+            <li>
+              <a href="tel:0794815207" class="btn alt" style="margin-top: 0;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
+                  <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.93 17.93 0 0 0 4.153 6.847 17.93 17.93 0 0 0 6.847 4.153c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459l-4.682-4.682a1.75 1.75 0 0 1-.459-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547c.52-.13 1.071-.015 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.363-1.03-.038-2.137.703-2.877z"/>
+                </svg>
+                0794815207
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section id="admission" class="section admission-section">
+      <h3>Registration & Admission</h3>
+      <p class="lead">
+        Begin your journey at SUBOMAP Institute — practical short courses designed to make you job-ready in GIS, Survey, Design, and Programming.
+      </p>
+    
+      <div class="admission-layout">
+        <!-- LEFT: Requirements -->
+        <div class="admission-details">
+          <h4>Admission Requirements</h4>
+          <ul class="requirements">
+            <li>✅ Completed High School or equivalent qualification</li>
+            <li>✅ Basic computer literacy knowledge</li>
+            <li>✅ Advancing from a technical college or university</li>
+            <li>✅ Possess valid National ID or Passport</li>
+            <li>✅ Two current passport-size photographs</li>
+            <li>✅ Copies of academic transcripts or certificates</li>
+          </ul>
+    
+          <h4>Mode of Study</h4>
+          <ul class="requirements">
+            <li>🎓 Full-Time (Physical at Nairobi CBD)</li>
+            <li>💻 Online / Hybrid (Zoom + Practical Sessions)</li>
+            <li>🕓 Weekend & Evening Programs available</li>
+          </ul>
+    
+          <div class="steps-section">
+            <h4>Admission Process</h4>
+            <div class="step-card">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <strong>Apply Online</strong>
+                <p>Fill in the registration form and upload your relevant documents.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <strong>Confirm Payment</strong>
+                <p>Our admissions team will contact you for fee details and intake confirmation.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <strong>Start Learning</strong>
+                <p>Receive your timetable, course materials, and join classes (onsite or online).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <!-- RIGHT: Application Form -->
+        <aside class="admission-form">
+          <h4>Online Application Form</h4>
+          <form id="regForm" action="https://formspree.io/f/mjkpgyzn" method="POST">
+            <div class="form-group">
+              <input class="input" name="name" placeholder="Full Name" required>
+              <input class="input" name="email" placeholder="Email Address" type="email" required>
+            </div>
+            <div class="form-group">
+              <input class="input" name="phone" placeholder="Phone Number" required>
+              <input class="input" name="dob" placeholder="Date of Birth" type="date" required>
+            </div>
+            <div class="form-group">
+              <select name="gender" class="input" required>
+                <option value="">Select Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+              </select>
+              <select name="county" class="input" required>
+                <option value="">Select County</option>
+                <option>Mombasa</option>
+                <option>Kwale</option>
+                <option>Kilifi</option>
+                <option>Tana River</option>
+                <option>Lamu</option>
+                <option>Taita-Taveta</option>
+                <option>Garissa</option>
+                <option>Wajir</option>
+                <option>Mandera</option>
+                <option>Marsabit</option>
+                <option>Isiolo</option>
+                <option>Meru</option>
+                <option>Tharaka-Nithi</option>
+                <option>Embu</option>
+                <option>Kitui</option>
+                <option>Machakos</option>
+                <option>Makueni</option>
+                <option>Nyandarua</option>
+                <option>Nyeri</option>
+                <option>Kirinyaga</option>
+                <option>Murang'a</option>
+                <option>Kiambu</option>
+                <option>Turkana</option>
+                <option>West Pokot</option>
+                <option>Samburu</option>
+                <option>Trans Nzoia</option>
+                <option>Uasin Gishu</option>
+                <option>Elgeyo-Marakwet</option>
+                <option>Nandi</option>
+                <option>Baringo</option>
+                <option>Laikipia</option>
+                <option>Nakuru</option>
+                <option>Narok</option>
+                <option>Kajiado</option>
+                <option>Kericho</option>
+                <option>Bomet</option>
+                <option>Kakamega</option>
+                <option>Vihiga</option>
+                <option>Bungoma</option>
+                <option>Busia</option>
+                <option>Siaya</option>
+                <option>Kisumu</option>
+                <option>Homa Bay</option>
+                <option>Migori</option>
+                <option>Kisii</option>
+                <option>Nyamira</option>
+                <option>Nairobi</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <select name="course" class="input" required>
+                <option value="">Preferred Course</option>
+                <optgroup label="Geospatial">
+                  <option>AUTOCAD CIVIL 3D</option>
+                  <option>RTK</option>
+                  <option>ARCMAP</option>
+                  <option>QGIS</option>
+                </optgroup>
+                <optgroup label="Instrumentation">
+                  <option>TOTAL STATION</option>
+                  <option>LEVEL MACHINE</option>
+                </optgroup>
+                <optgroup label="Design">
+                  <option>ARCHICAD</option>
+                  <option>SKETCHUP</option>
+                </optgroup>
+                <optgroup label="Software">
+                  <option>PYTHON FUNDAMENTAL</option>
+                  <option>WEB DESIGN (BASIC)</option>
+                  <option>WEB DESIGN (INTERMEDIATE)</option>
+                  <option>WEB DESIGN PRO</option>
+                  <option>PYTHON ADVANCED</option>
+                  <option>AI FOR DEVELOPERS</option>
+                  <option>PROMPT ENGINEERING</option>
+                </optgroup>
+              </select>
+              <select name="intake" class="input" required>
+                <option value="">Preferred Intake</option>
+                <option>January</option>
+                <option>May</option>
+                <option>September</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <select class="input" name="education" required>
+                <option value="">Highest Education Level</option>
+                <option>Higher Diploma</option>
+                <option>Form Four Level</option>
+                <option>Bachelors Degree</option>
+                <option>Masters Degree</option>
+                <option>Post Doctoral</option>
+              </select>
+              <input class="input" name="completion" placeholder="Year of Completion" type="number" required>
+            </div>
+            <div class="form-group">
+              <input class="input" name="institution" placeholder="Institution Attended" required>
+            </div>
+          
+            <div class="form-group terms">
+              <label>
+                <input type="checkbox" id="termsCheck"> I accept the
+                <a href="terms.html">Terms and Conditions</a>
+              </label>
+            </div>
+          
+            <button class="btn" id="submitBtn" type="submit" disabled>Submit Application</button>
+          </form>                    
+    
+          <div class="note">
+            <p>📧 You’ll receive a confirmation email once your application is successfully submitted.  
+            For help, contact <a href="mailto:subomapinstitute@gmail.com">subomapinstitute@gmail.com</a>.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-bg">
+      <img src="public/img7.webp" alt="Footer background" class="footer-deco"/>
+    </div>
+    <div class="wrap footer-grid">
+      <div class="footer-col">
+        <img src="public/img1.webp" alt="Subomap Logo" class="footer-logo"/>
+        <p>Building skills for the future through hands-on learning and industry-oriented programs.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="admission.html">Admission</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="terms.html" target="_blank">Terms and Conditions</a></li>
+          <li><a href="https://subomapgeosystems.com/" target="_blank">Subomapgeosystems</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact Info</h4>
+        <p>Tumaini House, 2nd Floor (Nairobi CBD)</p>
+        <p>Email: <a href="mailto:subomapinstitute@gmail.com">subomapinstitute@gmail.com</a></p>
+        <p>Phone: <a href="tel:0794815207">0794815207</a></p>
+        <div class="socials">
+          <a href="https://facebook.com" target="_blank"><img src="public/facebook.webp" alt="Facebook"></a>
+          <a href="https://linkedin.com" target="_blank"><img src="public/linkedin.webp" alt="LinkedIn"></a>
+          <a href="https://youtube.com" target="_blank"><img src="public/youtube.webp" alt="YouTube"></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 Subomap Institute — All Rights Reserved | Designed by Brian Otieno
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
