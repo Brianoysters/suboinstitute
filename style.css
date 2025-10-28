@@ -1078,3 +1078,127 @@ body.nav-open::after {
     font-size: 12px;
   }
 }
+
+/* ---------------- Contact Section (Revised) ---------------- */
+.contact-section {
+  background: #f8fafc;
+  padding: 60px 0;
+  position: relative;
+}
+
+.contact-section h3 {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  color: #0b1822;
+  margin-bottom: 10px;
+}
+
+.contact-section .lead {
+  text-align: center;
+  color: #444;
+  max-width: 640px;
+  margin: 0 auto 40px;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.contact-info {
+  background: #fff;
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+}
+
+.contact-info h4 {
+  color: var(--accent);
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.contact-info a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+.map-wrapper {
+  margin-top: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid rgba(0,0,0,0.08);
+}
+
+#map {
+  width: 100%;
+  height: 240px;
+}
+
+/* Contact Form Card */
+.contact-form-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+}
+
+.contact-form-card h4 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  color: #0b1822;
+}
+
+.contact-form-card .form-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.contact-form-card .input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 6px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.contact-form-card .input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(29,78,216,0.1);
+}
+
+.contact-form-card .btn.submit {
+  margin-top: 12px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+.contact-form-card .btn.submit:hover {
+  background: #0b1822;
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+  .map-wrapper {
+    height: auto;
+  }
+}
