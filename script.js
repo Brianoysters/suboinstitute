@@ -1,6 +1,25 @@
 // script.js
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
+// ---------------- Nav Highlight on Page Load ----------------
+document.addEventListener('DOMContentLoaded', () => {
+  // Fallback for index.html
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  const navLinks = document.querySelectorAll('nav a');
+
+  navLinks.forEach(link => {
+    const linkPage = link.getAttribute('href').split('/').pop();
+    
+    // Remove active class from all links first
+    link.classList.remove('active');
+
+    // Add active class if the link matches the current page
+    if (linkPage === currentPage) {
+      link.classList.add('active');
+    }
+  });
+});
+
 // ---------------- Page Animations ----------------
 gsap.from("header", { y: -40, opacity: 0, duration: 0.8, ease: "power2.out" });
 gsap.from(".hero-left h2", { y: 20, opacity: 0, duration: 0.9, delay: 0.2 });
