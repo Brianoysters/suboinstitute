@@ -584,8 +584,6 @@ a:hover {
   color: #007bff; /* Lighter blue on hover */
 }
 
-
-
 /* ---------------- Customer Care Card ---------------- */
 .customer-care-card {
   background: rgba(255, 255, 255, 0.85); /* Semi-transparent white for visibility */
@@ -594,7 +592,6 @@ a:hover {
   padding: 16px;
   /* Ensures card content is visible over bg images */
 }
-
 /* Responsive */
 @media (max-width: 768px) {
   .support-layout {
@@ -661,7 +658,7 @@ footer {
   object-fit: contain;
   margin-bottom: 12px;
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.05);
+background: rgba(255, 255, 255, 0.05);
   padding: 8px;
 }
 .footer-bottom {
@@ -678,7 +675,7 @@ footer {
   color: #ccc;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   margin-top: 30px;
-  padding-top: 10px;
+padding-top: 10px;
 }
 .socials {
   display: flex;
@@ -1010,7 +1007,7 @@ padding: 0 12px;
   .footer-logo {
     width: 60px;
     height: 60px;
-  }
+}
 
   .support-section {
     padding: 30px 18px;
@@ -1118,6 +1115,289 @@ body.pre-fade {
   transform: translateY(15px);
 }
 
+/* --- Media Queries for Responsiveness --- */
+
+/* --- Laptops & Large Tablets --- */
+@media (max-width: 1024px) {
+  .wrap {
+    padding: 0 2rem; /* Add more space on the sides */
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .hero-left {
+    order: 2;
+    margin-bottom: 0;
+  }
+
+  .hero-right {
+    order: 1;
+    margin: 0 auto;
+    max-width: 420px;
+  }
+
+  .courses-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 3rem;
+  }
+}
+
+/* --- Tablets & Phones (The Main Fix) --- */
+@media (max-width: 768px) {
+  .nav {
+    /* This is the main flex container: .wrap.nav */
+    justify-content: space-between; /* Keep logo and nav apart */
+    gap: 1.5rem;
+  }
+
+  .logo-img {
+    width: 160px; /* Control logo size */
+    flex-shrink: 0; /* Prevent logo from shrinking */
+  }
+
+  nav {
+    /* This is the <nav> element which will now scroll */
+    display: block; /* Override the default flex behavior */
+    overflow-x: auto;
+    /*-webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+    /*scrollbar-width: none;
+  }
+
+  nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  nav ul {
+    /* The list of links */
+    white-space: nowrap; /* CRITICAL: Keep all items on one line */
+    margin: 0;
+    padding: 0;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-col {
+    align-items: center;
+  }
+
+  .socials {
+    justify-content: center;
+  }
+}
+
+/* --- Small Phones --- */
+@media (max-width: 480px) {
+  .wrap {
+    padding: 0 1rem;
+  }
+
+  .logo-img {
+    width: 140px; /* Further shrink logo on very small screens */
+  }
+
+  .hero-left h2 {
+    font-size: 1.8rem; /* Adjust heading size */
+  }
+
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .top-strip {
+    font-size: 0.75rem;
+    text-align: center;
+  }
+}
+
+    gap: 2.5rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-col {
+    align-items: center; /* Center content within footer columns */
+  }
+
+  .socials {
+    justify-content: center;
+  }
+
+/* Phones */
+@media (max-width: 576px) {
+  body {
+    font-size: 90%; /* Further reduce font size for small phones */
+  }
+
+  .top-strip {
+    text-align: center;
+    padding: 8px 10px;
+  }
+}
+  header {
+    top: 42px; /* Adjust sticky header for potentially taller top strip */
+  }
+/* --- Footer Styles --- */
+footer {
+  position: relative;
+  background-color: #0a1828; /* A deep, professional navy blue */
+  color: #e1e1e1;
+  padding-top: 5rem;
+  margin-top: 4rem;
+  font-size: 0.95rem;
+}
+
+.footer-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.05;
+  overflow: hidden;
+}
+
+.footer-deco {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr;
+  gap: 3rem;
+  padding-bottom: 4rem;
+  position: relative;
+  z-index: 2;
+}
+
+.footer-col h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer-col h4::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--accent);
+}
+
+.footer-col p {
+  color: #b0c4de; /* A lighter, softer blue for readability */
+  line-height: 1.7;
+  max-width: 45ch;
+}
+
+.footer-col a {
+  color: #b0c4de;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-col a:hover {
+  color: var(--accent-2);
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.footer-logo {
+  max-width: 180px;
+  margin-bottom: 1rem;
+  background: #fff;
+  border-radius: 12px;
+  padding: 0.5rem;
+}
+
+.socials {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.socials a {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.socials a:hover {
+  transform: scale(1.1);
+}
+
+.socials img {
+  width: 32px;
+  height: 32px;
+  filter: grayscale(1) brightness(1.5);
+  transition: filter 0.3s ease;
+}
+
+.socials a:hover img {
+  filter: none;
+}
+
+.footer-bottom {
+  background-color: rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding: 1.2rem 0;
+  font-size: 0.9rem;
+  color: #a9a9a9;
+  position: relative;
+  z-index: 2;
+}
+
+/* === FINAL RESPONSIVE STYLES === */
+
+
+main {
+  padding-top: 40px;
+}
+
+.logo-img {
+  width: 150px; /* Make logo even smaller on narrow screens */
+}
+
+.hero-left h2 {
+  font-size: 32px;
+}
+
+.courses-grid {
+  grid-template-columns: 1fr; /* Stack course cards vertically */
+}
+
 /* This is the state for the old page as it navigates away */
 body.fade-out {
   opacity: 0;
@@ -1131,8 +1411,6 @@ body.fade-out {
 /* Pre-fade state for smooth loading */
 body.pre-fade {
   opacity: 0;
-}
-  position: relative;
 }
 
 .contact-section h3 {
@@ -1274,4 +1552,67 @@ body.pre-fade {
   .map-wrapper {
     height: auto;
   }
+}
+
+/* --- Media Queries for Responsiveness --- */
+
+@media (max-width: 992px) {
+  /* General adjustments for tablets */
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-left {
+    margin-bottom: 3rem;
+  }
+
+  .courses-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  /* --- Horizontally Scrolling Navigation --- */
+  nav {
+    justify-content: flex-start; /* This is the key fix */
+    overflow-x: auto;
+    /* -webkit-overflow-scrolling removed: not supported in many modern browsers */
+    -ms-overflow-style: none;
+    /*scrollbar-width: none;
+  }
+
+  nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  nav ul {
+    white-space: nowrap;
+    padding-right: 20px; /* Ensures last item isn't cut off */
+  }
+
+  /* Other adjustments for mobile */
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+    .logo-img {
+        width: 160px; /* Reduce logo size on very small screens */
+    }
+
+    .courses-grid,
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .top-strip {
+        font-size: 0.8rem;
+        text-align: center;
+    }
 }
