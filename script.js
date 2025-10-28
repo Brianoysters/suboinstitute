@@ -51,17 +51,29 @@ function setActive(id) {
 }
 
 // ---------------- Smooth Scrolling ----------------
-document.querySelectorAll("a[href^='#']").forEach(a => {
-  a.addEventListener("click", e => {
+document.querySelectorAll("a[href^='#']").forEach(anchor => {
+  anchor.addEventListener("click", function (e) {
     e.preventDefault();
-    const target = a.getAttribute("href");
+    e.stopPropagation(); // Prevent other click events
+
+    const href = this.getAttribute("href");
+    const body = document.body;
+
+    // If mobile nav is open, close it first
+    if (body.classList.contains('nav-open')) {
+      body.classList.remove('nav-open');
+      document.querySelector('.nav-right').classList.remove('active');
+    }
+
+    // Now, scroll to the target
     gsap.to(window, {
       duration: 1.2,
-      scrollTo: { y: target, offsetY: 80 },
+      scrollTo: { y: href, offsetY: 80 },
       ease: "power3.inOut"
     });
   });
 });
+
 
 // ---------------- Header Shadow ----------------
 const header = document.querySelector("header");
@@ -90,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 400);
   }
 
-  // Form functionality
+  // --- Existing Form Functionality ---
   const regForm = document.getElementById("regForm");
   const contactForm = document.getElementById("contactForm");
   const termsCheck = document.getElementById("termsCheck");

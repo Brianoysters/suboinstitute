@@ -20,6 +20,8 @@ body {
   background: #fff;
   color: var(--dark);
   line-height: 1.5;
+  position: relative;
+  overflow-x: hidden;
 }
 
 .wrap {
@@ -53,6 +55,7 @@ header {
   top: 32px;
   z-index: 100;
   border-bottom: 1px solid rgba(11, 24, 34, 0.05);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 }
 
@@ -72,6 +75,7 @@ main {
   display: flex;
   align-items: center;
   gap: 14px;
+  background: transparent;
 }
 
 .logo-img {
@@ -135,10 +139,12 @@ nav a.active {
   display: flex;
   gap: 12px;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 /* ---------------- Buttons ---------------- */
 .btn {
+  display: inline-block;
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
   color: #fff;
   border: none;
@@ -149,6 +155,10 @@ nav a.active {
   transition: all 0.25s ease;
   text-decoration: none;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 1;
+  margin-top: 6px;
+  white-space: nowrap;
 }
 .btn:hover {
   transform: translateY(-2px);
@@ -158,9 +168,6 @@ nav a.active {
   background: transparent;
   color: var(--accent);
   border: 1px solid var(--accent);
-  display: flex;
-  align-items: center;
-  gap: 8px;
 }
 .btn.alt:hover {
   background: var(--accent);
@@ -172,7 +179,7 @@ nav a.active {
   padding: 80px 0;
 }
 .section h3 {
-  font-family: 'Playfair Display', serif;
+font-family: 'Playfair Display', serif;
   font-size: 26px;
   color: var(--accent);
   margin-bottom: 10px;
@@ -215,11 +222,13 @@ nav a.active {
   margin-top: 18px;
   display: flex;
   gap: 12px;
+  flex-wrap: wrap;
 }
 .hero-right {
   background: rgba(255, 255, 255, 0.3);
   padding: 24px;
   border-radius: 14px;
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.8);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
@@ -291,19 +300,28 @@ nav a.active {
   border: 1px solid rgba(11, 24, 34, 0.04);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 12px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  min-height: 320px;
 }
 .course-thumb-img {
   width: 100%;
   height: 160px;
   border-radius: 10px;
-object-fit: cover;
+  object-fit: cover;
   margin-bottom: 10px;
   background: #eef3f7;
 }
+.course-card .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
 
-/* ---------------- Admission Section (Final Revision) ---------------- */
+/* ---------------- Admission Section ---------------- */
 .admission-section {
   background: #f9fafc;
   padding: 60px 30px;
@@ -333,7 +351,7 @@ object-fit: cover;
 }
 .requirements li {
   background: #fff;
-  border-left: 4px solid var(--accent, #1e88e5);
+  border-left: 4px solid var(--accent);
   padding: 10px 14px;
   border-radius: 8px;
   margin-bottom: 8px;
@@ -341,8 +359,6 @@ object-fit: cover;
   color: #333;
   box-shadow: 0 2px 5px rgba(0,0,0,0.04);
 }
-
-/* Steps */
 .steps-section {
   margin-top: 25px;
 }
@@ -352,12 +368,12 @@ object-fit: cover;
   border-radius: 8px;
   padding: 12px 16px;
   margin-bottom: 10px;
-  border-left: 4px solid var(--accent, #1e88e5);
+  border-left: 4px solid var(--accent);
   align-items: flex-start;
   box-shadow: 0 3px 10px rgba(0,0,0,0.05);
 }
 .step-number {
-  background: var(--accent, #1e88e5);
+  background: var(--accent);
   color: #fff;
   font-weight: 700;
   width: 34px;
@@ -367,6 +383,7 @@ object-fit: cover;
   justify-content: center;
   align-items: center;
   margin-right: 12px;
+  flex-shrink: 0;
 }
 .step-content strong {
   display: block;
@@ -374,7 +391,6 @@ object-fit: cover;
   margin-bottom: 4px;
 }
 
-/* Right Form */
 .admission-form {
   background: #fff;
   border-radius: 10px;
@@ -386,11 +402,13 @@ object-fit: cover;
   font-size: 20px;
   color: #0b1822;
 }
-.form-row {
+.form-group {
   display: flex;
   gap: 12px;
-  flex-wrap: wrap;
   margin-bottom: 12px;
+}
+.form-group .input {
+  width: 100%;
 }
 .admission-form .input {
   flex: 1;
@@ -401,42 +419,26 @@ object-fit: cover;
   background: #f9fafb;
   color: #0b1822;
 }
-.admission-form input[type="date"],
-.admission-form select {
-  color: #333;
-}
 .admission-form .input:focus {
-  border-color: var(--accent, #1e88e5);
+  border-color: var(--accent);
   outline: none;
 }
-.checkbox {
-  display: flex;
-  align-items: center;
+.form-group.terms {
+  margin-top: 12px;
   font-size: 14px;
-  margin-top: 8px;
-  margin-bottom: 18px;
-  gap: 6px;
-  color: #333;
+  color: var(--dark);
 }
-.checkbox a {
-  color: var(--accent, #1e88e5);
+.form-group.terms a {
+  color: var(--accent);
   text-decoration: underline;
 }
-.admission-form .btn {
-  width: 100%;
-  background: var(--accent, #1e88e5);
-  color: #fff;
-  border: none;
-  transition: background 0.3s ease;
-  font-size: 16px;
-  padding: 12px;
-}
-.admission-form .btn:hover {
-  background: #0b1822;
+#submitBtn[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 .note {
   background: #f1f6fb;
-  border-left: 4px solid var(--accent, #1e88e5);
+  border-left: 4px solid var(--accent);
   border-radius: 6px;
   margin-top: 16px;
   padding: 10px 14px;
@@ -444,15 +446,139 @@ object-fit: cover;
   color: #333;
 }
 .note a {
-  color: var(--accent, #1e88e5);
+  color: var(--accent);
   text-decoration: none;
 }
-@media (max-width: 900px) {
-  .admission-layout {
+
+/* ---------------- Customer Care ---------------- */
+.support-section {
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 12px;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.05);
+  padding: 50px 30px;
+}
+
+.support-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.support-info h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  margin-bottom: 12px;
+  color: var(--accent);
+}
+
+.support-list {
+  list-style: none;
+  margin-top: 10px;
+  padding: 0;
+}
+
+.support-list li {
+  margin-bottom: 10px;
+  font-size: 15px;
+  color: #223;
+}
+
+.support-card-box {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.support-card {
+  background: rgba(255, 255, 255, 0.85);
+  color: #1a08a7;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.support-card:hover {
+  transform: translateY(-6px);
+  background: var(--accent);
+  color: #fff;
+}
+
+.support-icon {
+  width: 60px;
+  margin-bottom: 16px;
+}
+
+.support-card h5 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.support-card p {
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.support-section .btn {
+  padding: 8px 18px;
+  font-size: 14px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+}
+
+.support-section .btn.alt {
+  background: #fff;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+/* ---------------- Tabs & Tel Button ---------------- */
+.tabs {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tabs li {
+  margin-right: 20px;
+}
+
+.tel-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  vertical-align: middle;
+  /* Ensures Tel button is in line with tabs */
+  margin: 0;
+  font-size: 16px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+/* ---------------- Customer Care Card ---------------- */
+.customer-care-card {
+  background: rgba(255, 255, 255, 0.85); /* Semi-transparent white for visibility */
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 16px;
+  /* Ensures card content is visible over bg images */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .support-layout {
     grid-template-columns: 1fr;
   }
 }
-
 /* ---------------- Map ---------------- */
 .map-container {
   position: relative;
@@ -518,6 +644,14 @@ footer {
   padding: 8px;
 }
 .footer-bottom {
+  padding: 1.5rem 2rem;
+  background: #010410;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.footer-bottom {
   text-align: center;
   font-size: 13px;
   color: #ccc;
@@ -540,46 +674,13 @@ footer {
   opacity: 1;
 }
 
-/* ---------------- Responsive ---------------- */
-@media (max-width: 1024px) {
-  .hero {
-    grid-template-columns: 1fr;
-  }
-  .courses-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
-}
-@media (max-width: 640px) {
-  nav ul {
-    display: none;
-  }
-  .wrap {
-    padding: 0 16px;
-  }
-  .courses-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ---------------- Smooth Background Crossfade (High Clarity) ---------------- */
-body {
-  position: relative;
-  background: #fff;
-  overflow-x: hidden;
-}
-
-/* Background layer container */
+/* ---------------- Background Slideshow ---------------- */
 .bg-slideshow {
   position: fixed;
   inset: 0;
   z-index: -2;
   overflow: hidden;
 }
-
-/* Individual background slides */
 .bg-slideshow img {
   position: absolute;
   width: 100%;
@@ -590,8 +691,6 @@ body {
   transition: opacity 1.8s ease-in-out;
   filter: brightness(1.05) contrast(1.1) saturate(1.1);
 }
-
-/* Smooth fade timing for each image */
 .bg-slideshow img:nth-child(1) { animation-delay: 0s; }
 .bg-slideshow img:nth-child(2) { animation-delay: 6s; }
 .bg-slideshow img:nth-child(3) { animation-delay: 12s; }
@@ -607,7 +706,6 @@ body {
   100% { opacity: 0; }
 }
 
-/* Overlay for balanced readability (reduced opacity for clarity) */
 body::before {
   content: "";
   position: fixed;
@@ -616,90 +714,367 @@ body::before {
   z-index: -1;
 }
 
-/* ---------------- Buttons Fix (Prevent Overlapping) ---------------- */
-.btn {
-  display: inline-block;              /* ensures it behaves as an inline element */
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  color: #fff;
-  border: none;
-  padding: 11px 18px;
-  border-radius: 10px;
-  font-weight: 600;
+/* ---------------- Responsive Adjustments ---------------- */
+.nav-toggle {
+  display: none;
   cursor: pointer;
-  transition: all 0.25s ease;
-  text-decoration: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  position: relative;
-  z-index: 1;                         /* keeps it above card backgrounds */
-  margin-top: 6px;                    /* adds vertical breathing room */
-  white-space: nowrap;                /* prevents wrapping on small text */
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-}
-
-.btn.alt {
   background: transparent;
-  color: var(--accent);
-  border: 1px solid var(--accent);
+  border: none;
+  padding: 5px;
+  z-index: 1100;
 }
-
-.btn.alt:hover {
-  background: var(--accent);
-  color: #fff;
-}
-
-/* Buttons inside grids (courses, hero, etc.) */
-.cta-group .btn,
-.row .btn,
-.actions .btn {
-  flex-shrink: 0;
-}
-
-.row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;           /* prevents overlap on narrow screens */
-  gap: 10px;                 /* adds spacing between price and button */
-}
-
-.cta-group {
-  display: flex;
-  flex-wrap: wrap;           /* allows line break if space is small */
-  gap: 12px;
-  margin-top: 18px;
-}
-
-/* Prevent overlap within cards */
-.course-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 320px;
-}
-
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-/* Terms checkbox styling */
-.form-group.terms {
-  margin-top: 12px;
-  font-size: 14px;
+.nav-toggle svg {
+  width: 28px;
+  height: 28px;
   color: var(--dark);
 }
-
-.form-group.terms a {
-  color: var(--accent);
-  text-decoration: underline;
+body.nav-open {
+  overflow: hidden;
+}
+body.nav-open::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 999;
 }
 
-#submitBtn[disabled] {
-  opacity: 0.6;
-  cursor: not-allowed;
+@media (max-width: 1024px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 20px;
+  }
+  .hero-left .cta-group {
+    justify-content: center;
+  }
+  .hero-right {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .courses-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .admission-layout,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .admission-layout,
+  .support-layout,
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .admission-form,
+  .support-section,
+  .contact-form {
+    padding: 20px;
+  }
+
+  .brand h1 {
+    font-size: 18px;
+  }
+
+  nav a {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .wrap {
+    padding: 0 12px;
+    max-width: 100%;
+  }
+  .nav-toggle {
+    display: block;
+  }
+  .nav-right {
+    flex-direction: column;
+    align-items: flex-start;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(75vw, 300px);
+    background: hsla(0, 0%, 100%, 0.95);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    padding: 100px 30px 30px;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+    transform: translateX(100%);
+    transition: transform 0.35s ease-in-out;
+    z-index: 1000;
+  }
+  .nav-right.active {
+    transform: translateX(0);
+  }
+  .nav-right ul {
+    flex-direction: column;
+    width: 100%;
+    text-align: left;
+    gap: 10px;
+  }
+  .nav-right ul a {
+    font-size: 18px;
+    padding: 10px;
+    display: block;
+  }
+  .nav-right .actions {
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 25px;
+    width: 100%;
+    gap: 15px;
+  }
+  .nav-right .actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+  .courses-grid,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+  .footer-grid {
+    text-align: center;
+  }
+  .footer-col p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .socials {
+    justify-content: center;
+  }
+  .top-strip .wrap {
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .top-strip {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+
+  header {
+    position: fixed;
+    top: 50px;
+    width: 100%;
+    z-index: 110;
+  }
+
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 0;
+  }
+
+  .brand {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .brand img.logo-img {
+    width: 90px;
+    height: 90px;
+  }
+
+  nav {
+    width: 100%;
+    text-align: center;
+    margin-top: 8px;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  nav a {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+
+  .actions {
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .actions .btn {
+    width: auto;
+    min-width: 120px;
+    font-size: 14px;
+  }
+
+  main {
+    padding-top: 180px !important;
+  }
+
+  .footer-col h4 {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .footer-col p,
+  .footer-col a {
+    font-size: 13px;
+  }
+
+  .footer-logo {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+@media (max-width: 640px) {
+  .wrap {
+    padding: 0 16px;
+  }
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+  .form-group {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-left h2 {
+    font-size: 30px;
+    line-height: 1.2;
+  }
+
+  .hero-left p {
+    font-size: 15px;
+  }
+
+  .btn {
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+
+  .top-strip {
+    font-size: 12px;
+    text-align: center;
+    line-height: 1.6;
+    padding: 10px 12px;
+  }
+
+  .admission-form h4 {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .admission-section {
+    padding: 40px 16px;
+  }
+
+  .footer-grid {
+    text-align: center;
+  }
+
+  .footer-col h4 {
+    margin-top: 10px;
+  }
+
+  .footer-logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .support-section {
+    padding: 30px 18px;
+  }
+
+  .support-card {
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--dark);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+    }
+    
+    .support-card:hover {
+    transform: translateY(-6px);
+    background: var(--accent);
+    color: #fff;
+    }
+    
+    .support-icon {
+    padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+  .brand p {
+    display: none;
+  }
+  .hero-left h2 {
+    font-size: 36px;
+  }
+  .section h3 {
+    font-size: 24px;
+  }
+  .top-strip .wrap {
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .top-strip {
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero-left h2 {
+    font-size: 26px;
+  }
+
+  .btn {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+
+  .top-strip {
+    font-size: 11px;
+  }
+
+  .footer-bottom {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero-left h2 {
+    font-size: 26px;
+  }
+
+  .btn {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  nav a {
+    font-size: 13px;
+  }
+
+  .admission-form .input {
+    font-size: 14px;
+  }
+
+  .footer-bottom {
+    font-size: 12px;
+  }
 }
