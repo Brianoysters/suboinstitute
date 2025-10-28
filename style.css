@@ -79,8 +79,8 @@ main {
 }
 
 .logo-img {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 100px;
   object-fit: contain;
   border-radius: 12px;
   transition: transform 0.3s ease;
@@ -89,18 +89,6 @@ main {
   transform: scale(1.05);
 }
 
-.brand h1 {
-  font-family: 'Playfair Display', serif;
-  margin: 0;
-  font-size: 22px;
-  color: #004080;
-}
-
-.brand p {
-  margin: 0;
-  font-size: 13px;
-  color: var(--muted);
-}
 
 nav {
   flex-grow: 1;
