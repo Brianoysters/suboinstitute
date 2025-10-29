@@ -523,6 +523,171 @@ align-items: center;
   border: 1px solid var(--accent);
 }
 
+/* ---------------- Support Form (Modernized) ---------------- */
+.support-form-section {
+  margin-top: 40px;
+  background: #ffffff;
+  padding: 48px 40px;
+  border-radius: 16px;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.support-form-section h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.support-form-section p {
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+
+.support-form-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.support-form-section .form-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.support-form-section .input,
+.support-form-section select,
+.support-form-section textarea {
+  flex: 1;
+  border: 1.5px solid #dbe3eb;
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 15px;
+  background: #f9fafb;
+  color: var(--dark);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+  transition: all 0.25s ease;
+}
+
+.support-form-section .input:focus,
+.support-form-section select:focus,
+.support-form-section textarea:focus {
+  border-color: var(--accent);
+  background: #fff;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 89, 255, 0.08);
+}
+
+.support-form-section textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Placeholder styling */
+.support-form-section .input::placeholder,
+.support-form-section textarea::placeholder {
+  color: #9aa6b2;
+  opacity: 0.9;
+}
+
+/* File input styling */
+.support-form-section .file-label {
+  font-size: 14px;
+  color: var(--dark);
+  font-weight: 500;
+}
+
+.support-form-section input[type="file"] {
+  border: 1.5px dashed #c8d2de;
+  border-radius: 10px;
+  padding: 12px;
+  background: #fdfdfd;
+  font-size: 14px;
+  cursor: pointer;
+  color: var(--dark);
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.support-form-section input[type="file"]:hover {
+  border-color: var(--accent);
+  background: #f9fbff;
+}
+
+/* Terms section */
+.support-form-section .terms {
+  font-size: 14px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.support-form-section .terms a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.support-form-section .terms input[type="checkbox"] {
+  transform: scale(1.1);
+  accent-color: var(--accent);
+}
+
+/* Submit button */
+.support-form-section button.btn {
+  align-self: flex-start;
+  margin-top: 8px;
+  padding: 14px 30px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 12px rgba(0, 89, 255, 0.2);
+}
+
+.support-form-section button.btn:hover:enabled {
+  background: #004aad;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 89, 255, 0.25);
+}
+
+.support-form-section button.btn:disabled {
+  background: #c8d2de;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 992px) {
+  .support-form-section {
+    padding: 32px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .support-form-section {
+    padding: 24px;
+  }
+
+  .support-form-section .form-group {
+    flex-direction: column;
+  }
+
+  .support-form-section button.btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+
 /* ---------------- Tabs & Tel Button ---------------- */
 .tabs {
   display: flex;

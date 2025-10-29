@@ -87,6 +87,67 @@
           </div>
         </aside>
       </div>
+      <!--customer-form-->
+      <div class="support-form-section">
+      <h4>Submit a Support Ticket</h4>
+      <p>Please fill out the form below to contact our support team. Fields marked * are required.</p>
+
+      <form id="supportForm" action="https://formspree.io/f/mzzkrlze" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+          <input class="input" name="name" placeholder="Full Name *" required>
+          <input class="input" name="student_id" placeholder="Student ID (if applicable)">
+        </div>
+
+        <div class="form-group">
+          <input class="input" name="email" placeholder="Email Address *" type="email" required>
+          <input class="input" name="phone" placeholder="Phone Number *" type="tel" required>
+        </div>
+
+        <div class="form-group">
+          <select name="category" class="input" required>
+            <option value="">Select Support Category *</option>
+            <option>Registration / Admission</option>
+            <option>Payments & Fees</option>
+            <option>Course Access</option>
+            <option>Technical Issues</option>
+            <option>General Inquiry</option>
+          </select>
+          <select name="priority" class="input" required>
+            <option value="">Priority Level *</option>
+            <option>Low</option>
+            <option>Medium</option>
+            <option>High</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <input class="input" name="course" placeholder="Course (if applicable)">
+        </div>
+
+        <div class="form-group">
+          <input class="input" name="subject" placeholder="Subject / Brief Description *" required>
+        </div>
+
+        <div class="form-group">
+          <textarea class="input" name="message" placeholder="Detailed Description *" rows="5" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="file-label">Attach a file (JPEG or PDF, optional):</label>
+          <input type="file" name="_attachment" accept=".jpg,.jpeg,.pdf">
+        </div>
+
+        <div class="form-group terms">
+          <label>
+            <input type="checkbox" id="termsCheck"> I accept the
+            <a href="terms.html" target="_blank">Terms and Conditions</a>
+          </label>
+        </div>
+
+        <button class="btn" id="submitBtn" type="submit" disabled>Submit Ticket</button>
+      </form>
+    </div>
+      
     </section>
 
   <!-- Footer -->

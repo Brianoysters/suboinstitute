@@ -233,3 +233,57 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// ---------------- Support Form Submission ----------------
+const supportForm = document.getElementById("supportForm");
+const supportTerms = document.getElementById("termsCheck");
+const supportSubmitBtn = document.getElementById("submitBtn");
+
+if (supportTerms && supportSubmitBtn) {
+  // Enable/disable button based on checkbox
+  supportTerms.addEventListener("change", () => {
+    supportSubmitBtn.disabled = !supportTerms.checked;
+    supportSubmitBtn.style.opacity = supportTerms.checked ? "1" : "0.6";
+    supportSubmitBtn.style.cursor = supportTerms.checked ? "pointer" : "not-allowed";
+  });
+}
+
+if (supportForm) {
+  supportForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    if (supportTerms && !supportTerms.checked) {
+      alert("⚠️ Please accept the Terms and Conditions before submitting.");
+      return;
+    }
+
+    const formData = new FormData(supportForm);
+
+    try {
+      const res = await fetch(supportForm.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (res.ok) {
+        alert("✅ Support ticket submitted successfully! We’ll get back to you shortly.");
+        supportForm.reset();
+
+        if (supportSubmitBtn) {
+          supportSubmitBtn.disabled = true;
+          supportSubmitBtn.style.opacity = "0.6";
+          supportSubmitBtn.style.cursor = "not-allowed";
+        }
+        if (supportTerms) supportTerms.checked = false;
+      } else {
+        alert("❌ Submission failed. Please try again later.");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("⚠️ Network error — please check your connection and try again.");
+    }
+  });
+}
