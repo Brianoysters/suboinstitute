@@ -287,3 +287,42 @@ if (supportForm) {
     }
   });
 }
+// -----------------------------
+// Responsive Mobile Navigation
+// -----------------------------
+document.addEventListener("DOMContentLoaded", () => {
+  const navToggle = document.getElementById("navToggle");
+  const navMenu = document.querySelector("header nav ul");
+  const navLinks = document.querySelectorAll("header nav ul li a");
+
+  if (navToggle && navMenu) {
+    // Toggle menu open/close
+    navToggle.addEventListener("click", () => {
+      const isOpen = navMenu.classList.toggle("active");
+      navToggle.classList.toggle("open", isOpen);
+      document.body.classList.toggle("nav-open", isOpen);
+    });
+
+    // Close when a nav link is clicked
+    navLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        navMenu.classList.remove("active");
+        navToggle.classList.remove("open");
+        document.body.classList.remove("nav-open");
+      });
+    });
+
+    // Close menu on outside click
+    document.addEventListener("click", (e) => {
+      if (
+        !navMenu.contains(e.target) &&
+        !navToggle.contains(e.target) &&
+        navMenu.classList.contains("active")
+      ) {
+        navMenu.classList.remove("active");
+        navToggle.classList.remove("open");
+        document.body.classList.remove("nav-open");
+      }
+    });
+  }
+});

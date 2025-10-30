@@ -130,6 +130,173 @@ nav a.active {
   flex-wrap: wrap;
 }
 
+/* --- Mobile Navigation (Hamburger) --- */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 2000;
+}
+
+.nav-toggle svg {
+  width: 28px;
+  height: 28px;
+  stroke: var(--dark);
+  transition: transform 0.3s ease;
+}
+
+/* Animate the button when opened */
+.nav-toggle.open svg {
+  transform: rotate(90deg);
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    position: fixed;
+    top: 65px; /* ⬆️ slightly higher placement */
+    right: 0;
+    width: 70%;
+    height: calc(100vh - 65px);
+    background: rgba(255, 255, 255, 0.97);
+    box-shadow: -3px 0 15px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 20px 20px 40px; /* ⬆️ reduced top padding */
+    gap: 16px; /* tighter spacing between tabs */
+    transform: translateX(100%);
+    transition: transform 0.35s ease-in-out;
+    overflow-y: auto;
+    z-index: 1500;
+  }
+
+  nav ul.active {
+    transform: translateX(0);
+  }
+
+  .nav-toggle {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 22px; /* adjusted slightly */
+  }
+
+  /* Prevent background scroll when menu open */
+  body.nav-open {
+    overflow: hidden;
+  }
+
+  /* Dim background when nav open */
+  body.nav-open::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 998;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  /* Animate nav links fade-in */
+  nav ul.active li {
+    opacity: 0;
+    animation: fadeSlideIn 0.35s forwards ease;
+  }
+
+  nav ul.active li:nth-child(1) { animation-delay: 0.05s; }
+  nav ul.active li:nth-child(2) { animation-delay: 0.1s; }
+  nav ul.active li:nth-child(3) { animation-delay: 0.15s; }
+  nav ul.active li:nth-child(4) { animation-delay: 0.2s; }
+  nav ul.active li:nth-child(5) { animation-delay: 0.25s; }
+
+  @keyframes fadeSlideIn {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+/* ---------------- Header Logo Refinement ---------------- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid rgba(11, 24, 34, 0.05);
+  padding-top: 8px; /* create spacing from top strip */
+}
+
+header .brand {
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  padding-left: 14px;
+  margin-top: 10px; /* slight drop to clear top strip */
+}
+
+header .brand .logo-img {
+  width: 170px;           /* increased size */
+  height: auto;
+  max-height: 85px;
+  object-fit: contain;
+  margin-top: 4px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+header .brand .logo-img:hover {
+  transform: scale(1.07);
+  opacity: 0.95;
+}
+
+/* ---------------- Mobile Adjustments ---------------- */
+@media (max-width: 768px) {
+  header {
+    padding-top: 6px;
+  }
+
+  header .brand {
+    padding-left: 10px;
+    margin-top: 8px;
+  }
+
+  header .brand .logo-img {
+    width: 150px;
+    max-height: 75px;
+    margin-top: 2px;
+  }
+
+  header .nav-toggle {
+    position: absolute;
+    right: 30px;
+    top: 30px; /* adjusted lower to align visually with new logo height */
+  }
+}
+
+@media (max-width: 480px) {
+  header .brand .logo-img {
+    width: 130px;
+    max-height: 65px;
+  }
+
+  header .nav-toggle {
+    top: 28px;
+    right: 14px;
+  }
+}
+
+
 /* ---------------- Buttons ---------------- */
 .btn {
   display: inline-block;
